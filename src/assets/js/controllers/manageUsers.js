@@ -4,7 +4,7 @@ const ManageUsers = (function () {
     var userStorage = localStorage.getItem("users");
 
     // se for uma string transforma em array
-    if (!(userStorage instanceof Array))
+    if (!(userStorage instanceof Array) && typeof(userStorage) === "string")
         JSON.parse(userStorage).forEach(u => users.push(new User(u)));
 
     const find = (predicate) =>
